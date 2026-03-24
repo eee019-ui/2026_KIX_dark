@@ -53,111 +53,98 @@ function getWeather(lat, lon, city) {
     fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`)
     .then(r => r.json()).then(d => {
         const temp = Math.round(d.current_weather.temperature);
-        const code = d.current_weather.weathercode;
         const mapping = { 0: "☀️ 晴天", 1: "🌤️ 多雲", 2: "⛅ 多雲", 3: "☁️ 陰天", 61: "🌧️ 小雨", 95: "⛈️ 雷陣雨" };
-        weatherDiv.innerHTML = `<i class="fa-solid fa-location-dot text-pink-500 mr-1"></i> ${city} ${temp}°C ${mapping[code] || "☁️"}`;
-    });
+        weatherDiv.innerHTML = `<i class="fa-solid fa-location-dot text-pink-500 mr-1"></i> ${city} ${temp}°C ${mapping[d.current_weather.weathercode] || "☁️"}`;
+    }).catch(() => { weatherDiv.innerHTML = "🌡️ 獲取失敗"; });
 }
 
 const fullDatabase = [
     { 
       day: "D1", date: "3/26", title: "抵達大阪・難波", hotel: "東橫INN 難波", lat: 34.667, lon: 135.500, city: "大阪",
       pass: { 
-          code: "官網確認碼: #5225479", 
-          hotel_map: "Toyoko Inn Osaka Namba", 
+          code: "官網確認碼: #5225479", hotel_map: "Toyoko Inn Osaka Namba", 
           tickets: [
-              { label: "機票電子票", url: "https://drive.google.com/file/d/16xvaOiMx3wXKQ_ePQiYuGxoMnZIPJ9QH/view?usp=drive_link" }, 
-              { label: "南海特急QR", url: "https://drive.google.com/file/d/1QxOOKGuP4IhksRrD1aKOW1yTud7C6uwE/view?usp=drive_link" },
-              { label: "訂房確認信", url: "https://drive.google.com/file/d/1fYX94I3lbmPxk4hOqwcGZ6gpCGeNszG1/view?usp=drive_link" }
+              { label: "機票電子票", url: "https://drive.google.com/file/d/16xvaOiMx3wXKQ_ePQiYuGxoMnZIPJ9QH/view" }, 
+              { label: "南海特急QR", url: "https://drive.google.com/file/d/1QxOOKGuP4IhksRrD1aKOW1yTud7C6uwE/view" },
+              { label: "訂房確認信", url: "https://drive.google.com/file/d/1fYX94I3lbmPxk4hOqwcGZ6gpCGeNszG1/view" }
           ] 
       },
       items: [
-        { time: "05:10", name: "新竹 ➔ 桃園機場", map: "桃園機場第一航廈", icon: "✈️", desc: ["第1航廈"] },
-        { time: "09:00", name: "TPE ➔ KIX", map: "關西機場", icon: "✈️", desc: ["12:00抵達"] },
-        { time: "13:35", name: "關西機場 ➔ 難波", url: "https://www.howto-osaka.com/tc/rapit/", map: "近鐵難波站", icon: "🚄", desc: ["搭乘 Rapi:t 特急 (40min)","飯店近#24 出口 or B6 出口"] },
-        { time: "15:30", name: "黑門市場 ➔ 心齋橋", icon: "🍱", map: "Kuromon Market", desc: ["黑門三平_海鮮", "心齋橋逛寶可夢中心 DX (大丸百貨9F)", "固力果跑跑人霓虹燈打卡"] },
-        { time: "19:30", name: "難波晚餐建議",  icon: "🍜", desc: ["@やさい串巻きなるとや (蔬菜串)","@Takoyaki Wanaka (本家章魚燒)","@福太郎 本店(大阪燒)", "@雞Soba 座銀 難波店", "@燒肉一斗"] }
+        { time: "05:10", name: "新竹 ➔ 桃園機場", map: "桃園機場第一航廈", icon: "✈️", desc: ["第1航廈星宇"] },
+        { time: "09:00", name: "TPE ➔ KIX", map: "關西機場", icon: "✈️", desc: ["12:00 抵達"] },
+        { time: "13:35", name: "關西機場 ➔ 難波", url: "https://www.howto-osaka.com/tc/rapit/", map: "南海難波站", icon: "🚄", desc: ["搭乘 Rapi:t 特急","飯店近 B6 出口"] },
+        { time: "15:30", name: "黑門市場 ➔ 心齋橋", icon: "🍱", map: "Kuromon Market", desc: ["黑門三平海鮮", "心齋橋寶可夢中心", "固力果跑跑人"] },
+        { time: "19:30", name: "難波晚餐建議", icon: "🍜", desc: ["@やさい串巻きなるとや","@Takoyaki Wanaka","@福太郎 本店","@雞Soba 座銀","@燒肉一斗"] }
       ]
     },
     { day: "D2", date: "3/27", title: "大阪城 & 海遊館", hotel: "難波 (續住)", lat: 34.687, lon: 135.526, city: "大阪城",
       pass: { hotel_map: "Toyoko Inn Osaka Namba", tickets: [{label: "海遊館門票", url: "https://www.kaiyukan.com/"}] },
       items: [
-        { time:"8:53", name: "難波➔海遊館", icon: "🚄", desc: ["8:51~9:38 60路公車","9:13~10:07 60路公車","9:29~9:59 地鐵轉車*1"] },
-        { time:"09:30", name: "海遊館", url: "https://www.kaiyukan.com/", map: "Osakako Station", icon: "🐬", desc: ["@海遊館","建議路線：先上7F → 順流而下", "09:50/13:20 海豹(7F)","10:00/14:20 企鵝","11:40/14:00 海豚(7F)"] },
-        { time:"15:00", name: "海遊館➔大阪城", icon: "🚄", desc: ["40min 地鐵轉車*1"] },
-        { time:"16:00", name: "大阪城", url: "https://www.osakacastle.net/", map: "Tanimachi 4-chome Station", icon: "🏰", desc: ["@大阪城 天守閣","拍櫻花必去"] },
-        { time: "11:40", name: "JO-TERRACE 午餐", map: "Osakajokoen Station", icon: "🍱", desc: ["11:40 進店避人潮","飯後步行至大阪城公園站移動"] },
-        { time: "18:30", name: "回程：難波", map: "難波站", desc: ["出口處有天保山摩天輪與美食街","大阪港站 ➔ 本町站 (轉乘) ➔ 難波站", "晚上可逛難波地下街 Porta 補貨"] }  
+        { time: "09:30", name: "海遊館", url: "https://www.kaiyukan.com/", map: "Osakako Station", icon: "🐬", desc: ["@海遊館","路線：先上 7F","09:50 海豹","10:00 企鵝"] },
+        { time: "11:40", name: "JO-TERRACE 午餐", map: "Osakajokoen Station", icon: "🍱", desc: ["避開人潮"] },
+        { time: "16:00", name: "大阪城", map: "Tanimachi 4-chome Station", icon: "🏰", desc: ["@大阪城 天守閣"] },
+        { time: "18:30", name: "回程：難波", map: "難波站", desc: ["地下街 Porta 補貨"] }
     ]},
     { day: "D3", date: "3/28", title: "奈良小鹿與東大寺", hotel: "難波 (續住)", lat: 34.685, lon: 135.827, city: "奈良",
       items: [
-        { time: "09:00", name: "難波 ➔ 奈良", map: "Kintetsu-Nara Station", icon: "🚄", desc: ["10分鐘1班車","近鐵奈良線 (急行 40min)","出站搭公車往春日大社較省力"] },
-        { time: "10:30", name: "東大寺與餵鹿", url: "https://www.todaiji.or.jp/", map: "Todaiji Temple", icon: "🦌", desc: ["大佛殿必看 / 鏡池櫻花必拍","鹿餅 200 日圓，小心包包"] },
-        { time: "17:00", name: "返回難波", map: "近鐵難波站", icon: "🚄", desc: ["回程建議選對號特急座位較舒適"]},
-        { time: "18:00", name: "難波晚餐建議", map: "近鐵難波站", icon: "🍜", desc: ["@やさい串巻きなるとや (蔬菜串)","@Takoyaki Wanaka (本家章魚燒)","@福太郎 本店(大阪燒)", "@雞Soba 座銀 難波店", "@燒肉一斗"] }
+        { time: "09:00", name: "難波 ➔ 奈良", map: "Kintetsu-Nara Station", icon: "🚄", desc: ["近鐵奈良線 (40min)"] },
+        { time: "10:30", name: "東大寺與餵鹿", map: "Todaiji Temple", icon: "🦌", desc: ["大佛殿必看","小心鹿餅"] },
+        { time: "18:00", name: "難波晚餐建議", map: "近鐵難波站", icon: "🍜", desc: ["@やさい串巻きなるとや","@燒肉一斗"] }
     ]},
     { day: "D4", date: "3/29", title: "動物王國 ➔ 姬路夜櫻", hotel: "神戶 BRENZA", lat: 34.690, lon: 135.195, city: "神戶",
-      pass: { hotel_map: "BRENZA HOTEL Kobe", tickets: [{label:"Trip_hung",url:"https://drive.google.com/file/d/10SbhrOlVSQCpevSIhBGmvw5WT5dupcKg/view?usp=drive_link"}] },
+      pass: { hotel_map: "BRENZA HOTEL Kobe", tickets: [{label:"Trip_hung",url:"https://drive.google.com/file/d/10SbhrOlVSQCpevSIhBGmvw5WT5dupcKg/view"}] },
       items: [
-        { time: "09:17", name: "難波 ➔ 神戶三宮", map: "Kobe-Sannomiya(Hanshin) Station", icon: "🚄", desc: ["09:17~09:58","搭乘阪神快速急行直達","10:10~10:24 轉乘 Port Liner","9:37~10:44"] },
-        { time: "10:30", name: "神戶動物王國", url: "https://www.kobe-oukoku.com/", map: "K Computer Mae Station", icon: "🐾", desc: ["11:30 禽鳥秀 / 12:15 鵜鶘"] },
-        { time: "12:54", name: "神戶動物王國➔三宮",map: "神戶三宮站", icon: "🚄", desc: ["12:54~13:15","13:04~13:25"] },
-        { time: "13:30", name: "鐵板燒 雪月花", map: "雪月花 本店", icon: "🍜", desc: ["提前預約? 午餐比較划算"] },
-        { time: "16:00", name: "姬路城夜櫻", url: "https://www.himejicastle.jp/", map: "Himeji Station", icon: "🏰", desc: ["@姬路城", "18:00 點燈"] }
+        { time: "09:17", name: "難波 ➔ 三宮", map: "Kobe-Sannomiya Station", icon: "🚄", desc: ["快速急行直達","轉 Port Liner 往動物王國"] },
+        { time: "10:30", name: "神戶動物王國", map: "K Computer Mae Station", icon: "🐾", desc: ["11:30 禽鳥秀"] },
+        { time: "16:00", name: "姬路城夜櫻", map: "Himeji Station", icon: "🏰", desc: ["@姬路城","18:00 點燈"] }
     ]},
     { day: "D5", date: "3/30", title: "清水寺 ➔ 空蟬亭", hotel: "京都新阪急酒店", lat: 34.994, lon: 135.785, city: "京都",
-      pass: { hotel_map: "京都新阪急酒店", tickets: [{label:"booking_wu",url:"https://drive.google.com/file/d/1Gf7gFo3xhooPJN5QnVQlgN4BuwTvchap/view?usp=drive_link"}] },
+      pass: { hotel_map: "京都新阪急酒店", tickets: [{label:"booking_wu",url:"https://drive.google.com/file/d/1Gf7gFo3xhooPJN5QnVQlgN4BuwTvchap/view"}] },
       items: [
-        { time: "09:00", name: "神戶 ➔ 京都", map: "Kyoto Station", icon: "🚄", desc: ["JR 新快速直達 (52分鐘)"] },
-        { time: "11:00", name: "清水寺散策", url: "https://www.kiyomizudera.or.jp/", map: "Kiyomizu-michi", icon: "⛩️", desc: ["清水寺➔二三年坂➔八坂神社"] },
-        { time: "18:30", name: "空蟬亭", url: "https://www.utsusemitei.jp/", map: "Nijojo-mae Station", icon: "🍱", desc: ["@熟成豚かつ 空蝉亭"] }
+        { time: "11:00", name: "清水寺散策", map: "Kiyomizu-michi", icon: "⛩️", desc: ["清水寺➔二三年坂"] },
+        { time: "18:30", name: "空蟬亭", map: "Nijojo-mae Station", icon: "🍱", desc: ["@熟成豚かつ 空蝉亭"] }
     ]},
     { day: "D6", date: "3/31", title: "嵐山 ➔ 鐵道館", hotel: "京都新阪急酒店", lat: 35.009, lon: 135.677, city: "嵐山",
       items: [
-        { time: "09:30", name: "嵐山風情", url: "https://www.shrine.or.jp/tw/arashiyama/", map: "Saga-Arashiyama Station", icon: "🎋", desc: ["@渡月橋", "竹林小徑"] },
-        { time: "14:30", name: "京都鐵道博物館", url: "https://www.kyototeidokan.jp/", map: "Umejin-Koyodo-Nishi Station", icon: "🚂", desc: ["扇形車庫與蒸汽火車"] },
-        { time: "19:00", name: "京都teamlab", icon: "🚂", desc: ["需先預約"] }
-        ]
-    },
+        { time: "09:30", name: "嵐山風情", map: "Saga-Arashiyama Station", icon: "🎋", desc: ["@渡月橋","竹林小徑"] },
+        { time: "14:30", name: "鐵道博物館", map: "Umejin-Koyodo-Nishi Station", icon: "🚂", desc: ["蒸汽火車"] }
+    ]},
     { day: "D7", date: "4/01", title: "任天堂 ➔ 名古屋", hotel: "名古屋 Montblanc", lat: 34.890, lon: 135.794, city: "宇治",
-      pass: { hotel_map: "Nagoya Montblanc Hotel", tickets: [{label: "任天堂博物館QR", url: "https://check.museum-tickets.nintendo.com/myticket"}] },
+      pass: { hotel_map: "Nagoya Montblanc Hotel", tickets: [{label: "任天堂博物館", url: "https://check.museum-tickets.nintendo.com/"}] },
       items: [
-        { time: "9:29", name: "京都➔小倉站", url: "https://museum.nintendo.com/", map: "近鐵小倉站", icon: "🚄", desc: ["20min 車程"] },
-        { time: "10:30", name: "任天堂博物館", url: "https://museum.nintendo.com/", map: "Ogura(Kyoto) Station", icon: "🎮", desc: ["需準時進場"] },
-        { time: "19:00", name: "新幹線 Nozomi", map: "Nagoya Station", icon: "🚄", desc: ["京都 ➔ 名古屋"] }
+        { time: "10:30", name: "任天堂博物館", map: "Ogura Station", icon: "🎮", desc: ["需準時進場"] },
+        { time: "19:00", name: "京都 ➔ 名古屋", map: "Nagoya Station", icon: "🚄", desc: ["新幹線 Nozomi"] }
     ]},
     { day: "D8", date: "4/02", title: "鈴鹿賽道", hotel: "名古屋 (續住)", lat: 34.843, lon: 136.541, city: "鈴鹿",
       items: [
-        { time: "08:31", name: "名古屋 ➔ 鈴鹿", url: "https://www.suzukacircuit.jp/", map: "Shiroko Station", icon: "🚄", desc: ["近鐵名古屋➔白子"] },
+        { time: "08:31", name: "名古屋 ➔ 鈴鹿", map: "Shiroko Station", icon: "🚄", desc: ["近鐵➔白子站"] },
         { time: "19:30", name: "熱田蓬萊軒", map: "Yaba-cho Station", icon: "🍱", desc: ["鰻魚飯三吃"] }
     ]},
     { day: "D9", date: "4/03", title: "樂高 ➔ 磁浮館", hotel: "名古屋 Montblanc", lat: 35.050, lon: 136.850, city: "名古屋港",
       items: [
-        { time: "10:00", name: "名古屋樂高樂園", url: "https://www.legoland.jp/", map: "Kinjofuto Station", icon: "🎢", desc: ["潛水艇冒險"] }
+        { time: "10:00", name: "名古屋樂高樂園", map: "Kinjofuto Station", icon: "🎢", desc: ["潛水艇冒險"] }
     ]},
     { day: "D10", date: "4/04", title: "水族館 ➔ 豐田", hotel: "ibis 名古屋", lat: 35.090, lon: 136.877, city: "名古屋港",
-      pass: { hotel_map: "ibis Styles Nagoya", tickets: [{label:"ibis搜尋",url:"https://mail.google.com/mail/u/0/#search/ibis+Nagoya"}] },
-      items: [{ time: "09:30", name: "港水族館", url: "https://www.nagoyaaqua.jp/", map: "Nagoyako Station", icon: "🐬", desc: ["@名古屋港水族館"] }]
+      pass: { hotel_map: "ibis Styles Nagoya", tickets: [{label:"ibis確認",url:"https://drive.google.com/file/d/1DZGMrlGJhXpBdaAincgn6STOLKkbwt1m/view"}] },
+      items: [{ time: "09:30", name: "港水族館", map: "Nagoyako Station", icon: "🐬", desc: ["@名古屋港水族館"] }]
     },
     { day: "D11", date: "4/05", title: "科學館 ➔ 犬山祭", hotel: "ibis 名古屋", lat: 35.390, lon: 136.942, city: "犬山",
-      items: [{ time: "15:00", name: "犬山祭", url: "https://inuyama.gr.jp/", map: "Inuyama Station", icon: "🏮", desc: ["@犬山城", "18:00 點燈"] }]
+      items: [{ time: "15:00", name: "犬山祭", map: "Inuyama Station", icon: "🏮", desc: ["@犬山城","18:00 點燈"] }]
     },
     { day: "D12", date: "4/06", title: "大須 ➔ 返台", hotel: "Sweet Home", lat: 34.858, lon: 136.815, city: "常滑",
       items: [
-        { time: "10:00", name: "大須商店街", url: "https://osu.co.jp/", map: "Osu Kannon Station", icon: "🛍️", desc: ["藥妝最後補貨"] },
-        { time: "15:20", name: "中部機場", url: "https://www.centrair.jp/", map: "Central Japan Airport Station", icon: "✈️", desc: ["@Flight of Dreams"] }
-      ]
-    }
+        { time: "10:00", name: "大須商店街", map: "Osu Kannon Station", icon: "🛍️", desc: ["藥妝補貨"] },
+        { time: "15:20", name: "中部機場", map: "Central Japan Airport Station", icon: "✈️", desc: ["@Flight of Dreams"] }
+    ]}
 ];
 
-let tripData = JSON.parse(localStorage.getItem("trip_v24_ui")) || fullDatabase;
+let tripData = JSON.parse(localStorage.getItem("trip_v25_final")) || fullDatabase;
 
 function renderDays(activeIndex = 0) {
     const daysDiv = document.getElementById("days");
     daysDiv.innerHTML = "";
     tripData.forEach((d, i) => {
         const btn = document.createElement("button");
-        btn.id = `btn-${i}`;
         btn.innerHTML = `<div class='text-[10px] opacity-40 mb-0.5'>${d.date}</div><div class='text-base font-black'>${d.day}</div>`;
         btn.className = `flex-shrink-0 px-6 py-2 border-2 border-slate-700 rounded-[1.2rem] bg-slate-800 text-slate-400 transition-all active:scale-95`;
         if (i === activeIndex) btn.classList.add("active-btn");
@@ -181,9 +168,9 @@ function renderContent(i) {
             <div class="flex flex-wrap gap-2">
                 ${(d.pass.tickets || []).map(t => {
                     const isMail = t.url.includes('mail.google.com');
-                    const isPDF = t.url.toLowerCase().includes('.pdf');
+                    const isPDF = t.url.toLowerCase().includes('.pdf') || t.url.includes('drive.google.com');
                     let icon = isMail ? 'fa-envelope' : (isPDF ? 'fa-file-pdf' : 'fa-link');
-                    return `<a href="${t.url}" target="_blank" class="pass-link"><i class="fa-solid ${icon}"></i> ${t.label}</a>`;
+                    return `<a href="${t.url}" target="_blank" class="pass-link active:scale-95"><i class="fa-solid ${icon}"></i> ${t.label}</a>`;
                 }).join("")}
             </div>
         </div>` : "";
@@ -200,7 +187,7 @@ function renderContent(i) {
                 <div class="event-content border-slate-800">
                     <div class="card !p-5 !mb-0 shadow-lg border-slate-700/50">
                         <div class="flex justify-between items-center gap-2">
-                            <div onclick="editItem(${i}, ${idx})" class="cursor-pointer flex-1 pr-4">
+                            <div onclick="editItem(${i}, ${idx})" class="cursor-pointer flex-1 pr-2">
                                 <div class="text-[10px] font-black text-pink-400 mb-1 opacity-60 uppercase">${e.icon || '📍'} Schedule</div>
                                 <div class="font-black text-xl text-slate-100 leading-tight">${e.name}</div>
                             </div>
@@ -248,8 +235,8 @@ function renderContent(i) {
     document.querySelectorAll("#days button").forEach((b, idx) => b.classList.toggle("active-btn", idx === i));
 }
 
-function save() { localStorage.setItem("trip_v24_ui", JSON.stringify(tripData)); }
-function resetData() { if(confirm("重置行程？")) { localStorage.removeItem("trip_v24_ui"); location.reload(); } }
+function save() { localStorage.setItem("trip_v25_final", JSON.stringify(tripData)); }
+function resetData() { if(confirm("重置行程？")) { localStorage.removeItem("trip_v25_final"); location.reload(); } }
 function editItem(dayIdx, itemIdx) {
     const n = prompt("修改名稱", tripData[dayIdx].items[itemIdx].name);
     if(n){ tripData[dayIdx].items[itemIdx].name = n; save(); renderContent(dayIdx); }
@@ -260,20 +247,6 @@ function addDesc(dayIdx, itemIdx) {
 }
 function deleteDesc(dayIdx, itemIdx, lineIdx) {
     if(confirm("刪除？")){ tripData[dayIdx].items[itemIdx].desc.splice(lineIdx, 1); save(); renderContent(dayIdx); }
-}
-
-function handleMailClick() {
-    if (isInAppBrowser()) {
-        alert("⚠️ 目前在 LINE / FB 內建瀏覽器\n\n👉 請點右上角『用瀏覽器開啟』再使用");
-        return;
-    }
-    const isMobile = /iPhone|Android/i.test(navigator.userAgent);
-    if (isMobile) { alert("📩 Gmail 信件\n👉 請用 Gmail App 搜尋開啟"); } else { window.open("https://mail.google.com", "_blank"); }
-}
-
-function isInAppBrowser() {
-    const ua = navigator.userAgent || navigator.vendor || window.opera;
-    return /Line|FBAN|FBAV|Instagram/i.test(ua);
 }
 
 renderDays(0);
