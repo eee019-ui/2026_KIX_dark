@@ -83,10 +83,11 @@ const fullDatabase = [
       pass: { hotel_map: "Toyoko Inn Osaka Namba", tickets: [{label: "海遊館門票", url: "https://www.kaiyukan.com/"}] },
       items: [
         { time:"8:53",name: "難波➔海遊館", icon: "🚄", desc: ["8:51~9:38 60路公車","9:13~10:07 60路公車","9:29~9:59 地鐵轉車*1"] },
-        { time:"09:30", name: "海遊館", url: "https://www.kaiyukan.com/", map: "Osakako Station", icon: "🐬", desc: ["@海遊館","🔥 建議路線：先上7F → 順流而下", "09:50/13:20 海豹(7F)","10:00/14:20 企鵝","11:15 浣熊","11:30 水獺","11:40/14:00 海豚(7F)","10:30 魚(6F)","10:50 企鵝(4F)"] },
+        { time:"09:30", name: "海遊館", url: "https://www.kaiyukan.com/", map: "Osakako Station", icon: "🐬", desc: ["🔥建議路線：先上7F → 順流而下", "09:50/13:20 海豹(7F)","10:00/14:20 企鵝","11:15 浣熊","11:30 水獺","11:40/14:00 海豚(7F)","10:30 魚(6F)","10:50 企鵝(4F)"] },
         { time:"15:00",name: "海遊館➔大阪城", icon: "🚄", desc: ["40min 地鐵轉車*1 "] },
-        { time:"16:00", name: "大阪城", url: "https://www.osakacastle.net/", map: "Tanimachi 4-chome Station", icon: "🏰", desc: ["@大阪城 天守閣","拍櫻花必去"] },
+        { time:"16:00", name: "大阪城", url: "https://www.osakacastle.net/", map: "Tanimachi 4-chome Station", icon: "🏰", desc: ["天守閣","拍櫻花必去"] },
         { time:"19:00", name: "晚餐",  icon: "🍜",},
+        { time:"planB", name: "",  icon: "✍️✍",},
         { time: "11:40", name: "JO-TERRACE 午餐", map: "Osakajokoen Station", icon: "🍱", desc: ["11:40 進店避人潮","飯後步行至大阪城公園站移動"] },
         { time: "13:40", name: "海遊館", url: "https://www.kaiyukan.com/", map: "Osakako Station", icon: "🐬", desc: ["@海遊館","🔥 建議路線：先上7F → 順流而下", "13:20/14:50 海豹(7F)","14:20 企鵝(7F)","16:30 海豚(7F)","15:00 魚(6F)","15:10 企鵝(4F)"] },  
         { time: "18:30", name: "回程：難波", map: "難波站", desc: ["出口處有天保山摩天輪與美食街","大阪港站 ➔ 本町站 (轉乘) ➔ 難波站", "晚上可逛難波地下街 Porta 補貨"] }  
@@ -141,8 +142,9 @@ const fullDatabase = [
     { day: "D8", date: "4/02", title: "鈴鹿賽道", hotel: "名古屋 (續住)", lat: 34.843, lon: 136.541, city: "鈴鹿",
       pass: { code: "續住免 Check-in", hotel_map: "Nagoya Montblanc Hotel", tickets: [{label: "鈴鹿賽道 QR", url: "#"}] },
       items: [
-        { time: "08:31", name: "名古屋 ➔ 鈴鹿", url: "https://www.suzukacircuit.jp/", map: "Shiroko Station", icon: "🚄", desc: ["近鐵名古屋➔白子 (需劃位)","轉巴士至賽道入口"] },
-        { time: "17:30", name: "鈴鹿➔名古屋", map: "Shiroko Station", icon: "🚄", desc: ["白子➔ 近鐵名古屋(需劃位)"] },
+        { time: "08:30", name: "名古屋 ➔ 鈴鹿", url: "https://www.suzukacircuit.jp/", map: "Shiroko Station", icon: "🚄", desc: ["8:30~9:09","近鐵名古屋➔白子 (需劃位)","轉計程車至賽道入口(20min"] },
+        { time: "09:30", name: "鈴鹿樂園", url: "https://www.suzukacircuit.jp/zh-tw/park/", map: "名古屋鈴鹿樂園", icon: "🎢",desc: [""]},
+        { time: "17:46/17:56", name: "鈴鹿➔名古屋", map: "Shiroko Station", icon: "🚄", desc: ["白子➔ 近鐵名古屋(需劃位)",] },
         { time: "19:30", name: "熱田蓬萊軒", map: "Yaba-cho Station", icon: "🍱", desc: ["鰻魚飯三吃 / 松坂屋店 10F","20:30 最後點餐時間"] }
     ]},
     { day: "D9", date: "4/03", title: "樂高 ➔ 磁浮館", hotel: "名古屋 Montblanc", lat: 35.050, lon: 136.850, city: "名古屋港",
