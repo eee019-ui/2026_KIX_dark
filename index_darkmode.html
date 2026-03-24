@@ -82,110 +82,74 @@ const fullDatabase = [
     { day: "D2", date: "3/27", title: "大阪城 & 海遊館", hotel: "難波 (續住)", lat: 34.687, lon: 135.526, city: "大阪城",
       pass: { hotel_map: "Toyoko Inn Osaka Namba", tickets: [{label: "海遊館門票", url: "https://www.kaiyukan.com/"}] },
       items: [
-        { time:"8:53",name: "難波➔海遊館", icon: "🚄", desc: ["8:51~9:38 60路公車","9:13~10:07 60路公車","9:29~9:59 地鐵轉車*1"] },
-        { time:"09:30", name: "海遊館", url: "https://www.kaiyukan.com/", map: "Osakako Station", icon: "🐬", desc: ["@海遊館","🔥 建議路線：先上7F → 順流而下", "09:50/13:20 海豹(7F)","10:00/14:20 企鵝","11:15 浣熊","11:30 水獺","11:40/14:00 海豚(7F)","10:30 魚(6F)","10:50 企鵝(4F)"] },
-        { time:"15:00",name: "海遊館➔大阪城", icon: "🚄", desc: ["40min 地鐵轉車*1 "] },
+        { time:"8:53", name: "難波➔海遊館", icon: "🚄", desc: ["8:51~9:38 60路公車","9:13~10:07 60路公車","9:29~9:59 地鐵轉車*1"] },
+        { time:"09:30", name: "海遊館", url: "https://www.kaiyukan.com/", map: "Osakako Station", icon: "🐬", desc: ["@海遊館","建議路線：先上7F → 順流而下", "09:50/13:20 海豹(7F)","10:00/14:20 企鵝","11:40/14:00 海豚(7F)"] },
+        { time:"15:00", name: "海遊館➔大阪城", icon: "🚄", desc: ["40min 地鐵轉車*1"] },
         { time:"16:00", name: "大阪城", url: "https://www.osakacastle.net/", map: "Tanimachi 4-chome Station", icon: "🏰", desc: ["@大阪城 天守閣","拍櫻花必去"] },
-        { time:"19:00", name: "晚餐"},
         { time: "11:40", name: "JO-TERRACE 午餐", map: "Osakajokoen Station", icon: "🍱", desc: ["11:40 進店避人潮","飯後步行至大阪城公園站移動"] },
-        { time: "13:40", name: "海遊館", url: "https://www.kaiyukan.com/", map: "Osakako Station", icon: "🐬", desc: ["@海遊館","🔥 建議路線：先上7F → 順流而下", "13:20/14:50 海豹(7F)","14:20 企鵝(7F)","16:30 海豚(7F)","15:00 魚(6F)","15:10 企鵝(4F)"] },  
         { time: "18:30", name: "回程：難波", map: "難波站", desc: ["出口處有天保山摩天輪與美食街","大阪港站 ➔ 本町站 (轉乘) ➔ 難波站", "晚上可逛難波地下街 Porta 補貨"] }  
     ]},
     { day: "D3", date: "3/28", title: "奈良小鹿與東大寺", hotel: "難波 (續住)", lat: 34.685, lon: 135.827, city: "奈良",
       items: [
         { time: "09:00", name: "難波 ➔ 奈良", map: "Kintetsu-Nara Station", icon: "🚄", desc: ["10分鐘1班車","近鐵奈良線 (急行 40min)","出站搭公車往春日大社較省力"] },
         { time: "10:30", name: "東大寺與餵鹿", url: "https://www.todaiji.or.jp/", map: "Todaiji Temple", icon: "🦌", desc: ["大佛殿必看 / 鏡池櫻花必拍","鹿餅 200 日圓，小心包包"] },
-        { time: "17:00", name: "返回難波", map: "近鐵難波站", icon: "🚄", desc: ["回程建議選對號特急座位較舒適", ]},
+        { time: "17:00", name: "返回難波", map: "近鐵難波站", icon: "🚄", desc: ["回程建議選對號特急座位較舒適"]},
         { time: "18:00", name: "難波晚餐建議", map: "近鐵難波站", icon: "🍜", desc: ["@やさい串巻きなるとや (蔬菜串)","@Takoyaki Wanaka (本家章魚燒)","@福太郎 本店(大阪燒)", "@雞Soba 座銀 難波店", "@燒肉一斗"] }
     ]},
     { day: "D4", date: "3/29", title: "動物王國 ➔ 姬路夜櫻", hotel: "神戶 BRENZA", lat: 34.690, lon: 135.195, city: "神戶",
-      pass: { hotel_map: "BRENZA HOTEL Kobe", 
-        tickets: [{label:"Trip_hung",url:"https://drive.google.com/file/d/10SbhrOlVSQCpevSIhBGmvw5WT5dupcKg/view?usp=drive_link"}] 
-            },
+      pass: { hotel_map: "BRENZA HOTEL Kobe", tickets: [{label:"Trip_hung",url:"https://drive.google.com/file/d/10SbhrOlVSQCpevSIhBGmvw5WT5dupcKg/view?usp=drive_link"}] },
       items: [
-        { time: "09:17", name: "難波 ➔ 神戶三宮", map: "Kobe-Sannomiya(Hanshin) Station", icon: "🚄", desc: ["09:17~09:58","搭乘阪神快速急行直達","10:10~10:24 轉乘 Port Liner 往計算科學中心站","9:37~10:44"] },
-        { time: "10:30", name: "神戶動物王國", url: "https://www.kobe-oukoku.com/", map: "K Computer Mae Station", icon: "🐾", desc: ["11:30 禽鳥秀 / 12:15 鵜鶘 / 13:15 牧羊犬秀"] },
-        { time: "12:54", name: "神戶動物王國➔ 神戶三宮",map: "神戶三宮站", icon: "🚄", desc: ["12:54~13:15","13:04~13:25"] },
-        { time: "13:30", name: "鐵板燒 雪月花",map: "雪月花 本店", icon: "🍜", desc: ["提前預約? 午餐比較划算"] },
-        { time: "15:00", name: "三宮 ➔ JR姬路", map: "Himeji Station", icon: "🚄", desc: ["15:00~15:47 JR","15:29~16:17"] },
-        { time: "16:00", name: "姬路城夜櫻", url: "https://www.himejicastle.jp/", map: "Himeji Station", icon: "🏰", desc: ["@姬路城", "18:00 點燈：拍天守夜櫻"] },
-        { time: "19:00", name: "JR姬路 ➔ 三宮", map: "神戶三宮站", icon: "🚄", desc: ["18:41/19:11/19:26 JR"] },
+        { time: "09:17", name: "難波 ➔ 神戶三宮", map: "Kobe-Sannomiya(Hanshin) Station", icon: "🚄", desc: ["09:17~09:58","搭乘阪神快速急行直達","10:10~10:24 轉乘 Port Liner","9:37~10:44"] },
+        { time: "10:30", name: "神戶動物王國", url: "https://www.kobe-oukoku.com/", map: "K Computer Mae Station", icon: "🐾", desc: ["11:30 禽鳥秀 / 12:15 鵜鶘"] },
+        { time: "12:54", name: "神戶動物王國➔三宮",map: "神戶三宮站", icon: "🚄", desc: ["12:54~13:15","13:04~13:25"] },
+        { time: "13:30", name: "鐵板燒 雪月花", map: "雪月花 本店", icon: "🍜", desc: ["提前預約? 午餐比較划算"] },
+        { time: "16:00", name: "姬路城夜櫻", url: "https://www.himejicastle.jp/", map: "Himeji Station", icon: "🏰", desc: ["@姬路城", "18:00 點燈"] }
     ]},
     { day: "D5", date: "3/30", title: "清水寺 ➔ 空蟬亭", hotel: "京都新阪急酒店", lat: 34.994, lon: 135.785, city: "京都",
       pass: { hotel_map: "京都新阪急酒店", tickets: [{label:"booking_wu",url:"https://drive.google.com/file/d/1Gf7gFo3xhooPJN5QnVQlgN4BuwTvchap/view?usp=drive_link"}] },
       items: [
-        { time: "09:00", name: "神戶 ➔ 京都", map: "Kyoto Station", icon: "🚄", desc: ["9:00/9:13~9:59/10:14 JR 新快速直達)"] },
-        { time: "11:00", name: "清水寺散策", url: "https://www.kiyomizudera.or.jp/", map: "Kiyomizu-michi", icon: "⛩️", desc: ["清水寺➔二三年坂➔八坂神社","午餐：藤菜美糰子 / 花見小路"] },
-        { time: "18:30", name: "空蟬亭", url: "https://www.utsusemitei.jp/", map: "Nijojo-mae Station", icon: "🍱", desc: ["@熟成豚かつ 空蝉亭","建議搭計程車"] },
-        { time: "20:00", name:"圓山公園夜櫻", map: "圓山公園", icon: "⛩️", desc: ["看「祇園枝垂櫻」之王"] }
+        { time: "09:00", name: "神戶 ➔ 京都", map: "Kyoto Station", icon: "🚄", desc: ["JR 新快速直達 (52分鐘)"] },
+        { time: "11:00", name: "清水寺散策", url: "https://www.kiyomizudera.or.jp/", map: "Kiyomizu-michi", icon: "⛩️", desc: ["清水寺➔二三年坂➔八坂神社"] },
+        { time: "18:30", name: "空蟬亭", url: "https://www.utsusemitei.jp/", map: "Nijojo-mae Station", icon: "🍱", desc: ["@熟成豚かつ 空蝉亭"] }
     ]},
     { day: "D6", date: "3/31", title: "嵐山 ➔ 鐵道館", hotel: "京都新阪急酒店", lat: 35.009, lon: 135.677, city: "嵐山",
       items: [
-        { time: "09:30", name: "嵐山風情", url: "https://www.shrine.or.jp/tw/arashiyama/", map: "Saga-Arashiyama Station", icon: "🎋", desc: ["@渡月橋", "竹林小徑","JR 31-33 月台搭 嵯峨野線"] },
-        { time: "14:30", name: "京都鐵道博物館", url: "https://www.kyototeidokan.jp/", map: "Umejin-Koyodo-Nishi Station", icon: "🚂", desc: ["必拍：扇形車庫與蒸汽火車","梅小路公園櫻花林散步"] },
-        { time: "19:00", name: "京都teamlab", icon: "🚂", desc: ["可考慮要不要去","需先預約"] }
+        { time: "09:30", name: "嵐山風情", url: "https://www.shrine.or.jp/tw/arashiyama/", map: "Saga-Arashiyama Station", icon: "🎋", desc: ["@渡月橋", "竹林小徑"] },
+        { time: "14:30", name: "京都鐵道博物館", url: "https://www.kyototeidokan.jp/", map: "Umejin-Koyodo-Nishi Station", icon: "🚂", desc: ["扇形車庫與蒸汽火車"] },
+        { time: "19:00", name: "京都teamlab", icon: "🚂", desc: ["需先預約"] }
         ]
     },
     { day: "D7", date: "4/01", title: "任天堂 ➔ 名古屋", hotel: "名古屋 Montblanc", lat: 34.890, lon: 135.794, city: "宇治",
-      pass: { hotel_map: "Nagoya Montblanc Hotel", 
-        tickets: [
-            {label: "任天堂博物館QR", url: "https://check.museum-tickets.nintendo.com/myticket"},
-            {label:"Trip_hung",url:"https://drive.google.com/file/d/1DuMVj4wFcG9ZFPgJL50cEyU5Uu86Welr/view?usp=drive_link"}
-        ] },
+      pass: { hotel_map: "Nagoya Montblanc Hotel", tickets: [{label: "任天堂博物館QR", url: "https://check.museum-tickets.nintendo.com/myticket"}] },
       items: [
-        { time: "9:29/9:43", name: "京都➔近鐵小倉站", url: "https://www.ptt.cc/bbs/NSwitch/M.1728131910.A.B47.html", map: "近鐵小倉站", icon: "🚄", desc: ["京都➔小倉站 (20min)"] },
-        { time: "10:30", name: "任天堂博物館", url: "https://museum.nintendo.com/", map: "Ogura(Kyoto) Station", icon: "🎮", desc: ["需準時進場，預約不可撤銷"] },
-        { time: "15:30", name: "伏見稻荷大社", map: "Inari Station", icon: "⛩️", desc: ["千本鳥居散策","搭普通車 (快速不停稻荷)"] },
-        { time: "19:00", name: "新幹線 Nozomi", map: "Nagoya Station", icon: "🚄", desc: ["京都 ➔ 名古屋","入住站前 Montblanc 飯店"] }
+        { time: "9:29", name: "京都➔小倉站", url: "https://museum.nintendo.com/", map: "近鐵小倉站", icon: "🚄", desc: ["20min 車程"] },
+        { time: "10:30", name: "任天堂博物館", url: "https://museum.nintendo.com/", map: "Ogura(Kyoto) Station", icon: "🎮", desc: ["需準時進場"] },
+        { time: "19:00", name: "新幹線 Nozomi", map: "Nagoya Station", icon: "🚄", desc: ["京都 ➔ 名古屋"] }
     ]},
     { day: "D8", date: "4/02", title: "鈴鹿賽道", hotel: "名古屋 (續住)", lat: 34.843, lon: 136.541, city: "鈴鹿",
-      pass: { code: "續住免 Check-in", hotel_map: "Nagoya Montblanc Hotel", tickets: [{label: "鈴鹿賽道 QR", url: "#"}] },
       items: [
-        { time: "08:31", name: "名古屋 ➔ 鈴鹿", url: "https://www.suzukacircuit.jp/", map: "Shiroko Station", icon: "🚄", desc: ["近鐵名古屋➔白子 (需劃位)","轉巴士至賽道入口"] },
-        { time: "17:30", name: "鈴鹿➔名古屋", map: "Shiroko Station", icon: "🚄", desc: ["白子➔ 近鐵名古屋(需劃位)"] },
-        { time: "19:30", name: "熱田蓬萊軒", map: "Yaba-cho Station", icon: "🍱", desc: ["鰻魚飯三吃 / 松坂屋店 10F","20:30 最後點餐時間"] }
+        { time: "08:31", name: "名古屋 ➔ 鈴鹿", url: "https://www.suzukacircuit.jp/", map: "Shiroko Station", icon: "🚄", desc: ["近鐵名古屋➔白子"] },
+        { time: "19:30", name: "熱田蓬萊軒", map: "Yaba-cho Station", icon: "🍱", desc: ["鰻魚飯三吃"] }
     ]},
     { day: "D9", date: "4/03", title: "樂高 ➔ 磁浮館", hotel: "名古屋 Montblanc", lat: 35.050, lon: 136.850, city: "名古屋港",
-      pass: { code: "續住免 Check-in", hotel_map: "Nagoya Montblanc Hotel", tickets: [] },
       items: [
-        { time: "09:00", name: "前往金城埠頭", map: "金城埠頭站", desc: ["名古屋站搭乘「青波線」(24分鐘)", "下車步行 5-8 分鐘抵達樂高樂園"] },
-        { time: "10:00", name: "名古屋樂高樂園", url: "https://www.legoland.jp/", map: "名古屋樂高樂園", icon: "🎢", desc: ["潛水艇冒險 / Miniland 縮影"] }
+        { time: "10:00", name: "名古屋樂高樂園", url: "https://www.legoland.jp/", map: "Kinjofuto Station", icon: "🎢", desc: ["潛水艇冒險"] }
     ]},
     { day: "D10", date: "4/04", title: "水族館 ➔ 豐田", hotel: "ibis 名古屋", lat: 35.090, lon: 136.877, city: "名古屋港",
-      pass: { hotel_map: "ibis 名古屋", 
-        tickets: [
-            {label:"ibis_wu",url:"https://drive.google.com/file/d/1DZGMrlGJhXpBdaAincgn6STOLKkbwt1m/view?usp=drive_link"}
-        ] },
-      items: [
-        { time: "08:30", name: "行李換宿策略", map: "Nagoya Station", icon: "🧳", desc: ["先退房將行李拉至新飯店 ibis Styles","ibis Styles 近柳橋市場，步行較近"] },
-        { time: "09:30", name: "名古屋港水族館", url: "https://www.nagoyaaqua.jp/", map: "Nagoyako Station", icon: "🐬", 
-            desc: [
-            "餵_企鵝 10:00/14:30   北館_潮風",
-            "海豚表演　11:00/13:00/15:30 北館_3F",
-            "逆戟鯨 12:00/14:30    北館_3F",
-            "白鯨訓練 11:00/15:30 北館_3F",
-            "白鯨 13:00   北館_2F",
-            "沙丁魚    13:00/15:30 南館_2F",
-            "珊瑚礁 14:30  南館_1F",
-            "餵_黑潮   10:15   南館_2F",
-            "餵_海龜   13:30   南館_3F",
-            "餵_企鵝 13:00/16:00   南館_3F",
-            "午餐於旁邊 Jetty 美食街"] },
-        { time: "14:00", name: "豐田技術紀念館", url: "https://www.tcmit.org/", map: "Sako Station", icon: "🚗", desc: ["汽車生產自動化演示","名鐵一站即達"] }
-    ]
+      pass: { hotel_map: "ibis Styles Nagoya", tickets: [{label:"ibis搜尋",url:"https://mail.google.com/mail/u/0/#search/ibis+Nagoya"}] },
+      items: [{ time: "09:30", name: "港水族館", url: "https://www.nagoyaaqua.jp/", map: "Nagoyako Station", icon: "🐬", desc: ["@名古屋港水族館"] }]
     },
     { day: "D11", date: "4/05", title: "科學館 ➔ 犬山祭", hotel: "ibis 名古屋", lat: 35.390, lon: 136.942, city: "犬山",
-      items: [
-        { time: "09:30", name: "名古屋市科學館", map: "伏見站", desc: ["地鐵東山線至伏見站。看大星象儀", "午餐：鳥開總本家 (交趾雞親子丼)", "下午搭名鐵犬山線往犬山站"] },
-        { time: "15:00", name: "犬山祭", url: "https://inuyama.gr.jp/", map: "Inuyama Station", icon: "🏮", desc: ["@犬山城", "18:00 點燈","回程人多建議先買座位票"] }
-    ]
+      items: [{ time: "15:00", name: "犬山祭", url: "https://inuyama.gr.jp/", map: "Inuyama Station", icon: "🏮", desc: ["@犬山城", "18:00 點燈"] }]
     },
     { day: "D12", date: "4/06", title: "大須 ➔ 返台", hotel: "Sweet Home", lat: 34.858, lon: 136.815, city: "常滑",
       items: [
-        { time: "10:00", name: "磁浮鐵道館", url: "https://museum.jr-central.co.jp/", map: "Kinjofuto Station", icon: "🚄", desc: ["名古屋站搭青波線直達","進館先抽模擬駕駛籤"] },
-        { time: "15:20", name: "中部機場", url: "https://www.centrair.jp/", map: "Central Japan Airport Station", icon: "✈️", desc: ["@Flight of Dreams"] }]
+        { time: "10:00", name: "大須商店街", url: "https://osu.co.jp/", map: "Osu Kannon Station", icon: "🛍️", desc: ["藥妝最後補貨"] },
+        { time: "15:20", name: "中部機場", url: "https://www.centrair.jp/", map: "Central Japan Airport Station", icon: "✈️", desc: ["@Flight of Dreams"] }
+      ]
     }
 ];
+
 let tripData = JSON.parse(localStorage.getItem("trip_v24_ui")) || fullDatabase;
 
 function renderDays(activeIndex = 0) {
@@ -218,30 +182,9 @@ function renderContent(i) {
                 ${(d.pass.tickets || []).map(t => {
                     const isMail = t.url.includes('mail.google.com');
                     const isPDF = t.url.toLowerCase().includes('.pdf');
-                    
-                    let icon = 'fa-globe';
-                    let action = `target="_blank" rel="noopener noreferrer"`;
-                    let href = t.url;
-                    let extra = '';
-                
-                    if (isMail) {
-                        icon = 'fa-envelope';
-                        href = '#';
-                        action = '';
-                        extra = `onclick="handleMailClick()"`;
-                    } else if (isPDF) {
-                        icon = 'fa-file-pdf';
-                    } else {
-                        icon = 'fa-link';
-                    }
-                
-                    return `
-                    <a href="${href}" ${action} ${extra}
-                       class="pass-link active:scale-95">
-                        <i class="fa-solid ${icon}"></i> ${t.label}
-                    </a>`;
+                    let icon = isMail ? 'fa-envelope' : (isPDF ? 'fa-file-pdf' : 'fa-link');
+                    return `<a href="${t.url}" target="_blank" class="pass-link"><i class="fa-solid ${icon}"></i> ${t.label}</a>`;
                 }).join("")}
-
             </div>
         </div>` : "";
 
@@ -318,26 +261,21 @@ function addDesc(dayIdx, itemIdx) {
 function deleteDesc(dayIdx, itemIdx, lineIdx) {
     if(confirm("刪除？")){ tripData[dayIdx].items[itemIdx].desc.splice(lineIdx, 1); save(); renderContent(dayIdx); }
 }
+
 function handleMailClick() {
     if (isInAppBrowser()) {
         alert("⚠️ 目前在 LINE / FB 內建瀏覽器\n\n👉 請點右上角『用瀏覽器開啟』再使用");
         return;
     }
-
     const isMobile = /iPhone|Android/i.test(navigator.userAgent);
-
-    if (isMobile) {
-        alert("📩 Gmail 信件\n👉 請用 Gmail App 搜尋開啟");
-    } else {
-        window.open("https://mail.google.com", "_blank");
-    }
+    if (isMobile) { alert("📩 Gmail 信件\n👉 請用 Gmail App 搜尋開啟"); } else { window.open("https://mail.google.com", "_blank"); }
 }
-
 
 function isInAppBrowser() {
     const ua = navigator.userAgent || navigator.vendor || window.opera;
     return /Line|FBAN|FBAV|Instagram/i.test(ua);
 }
+
 renderDays(0);
 renderContent(0);
 </script>
