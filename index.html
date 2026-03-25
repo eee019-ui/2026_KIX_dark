@@ -68,14 +68,16 @@ const fullDatabase = [
           tickets: [
               { label: "機票電子票", url: "https://drive.google.com/file/d/16xvaOiMx3wXKQ_ePQiYuGxoMnZIPJ9QH/view?usp=drive_link" }, 
               { label: "南海特急QR", url: "https://drive.google.com/file/d/1QxOOKGuP4IhksRrD1aKOW1yTud7C6uwE/view?usp=drive_link" },
-              { label: "訂房確認信", url: "https://drive.google.com/file/d/1fYX94I3lbmPxk4hOqwcGZ6gpCGeNszG1/view?usp=drive_link" }
+              { label: "訂房確認信", url: "https://drive.google.com/file/d/1fYX94I3lbmPxk4hOqwcGZ6gpCGeNszG1/view?usp=drive_link" },
+              { label: "寶可夢咖啡廳", url: "https://drive.google.com/file/d/1MEyMTTnHoz4orti_0ZHKpSRjUBZ2X4hI/view?usp=drive_link"}
           ] 
       },
       items: [
-        { time: "05:10", name: "新竹 ➔ 桃園機場", map: "桃園機場第一航廈", icon: "✈️", desc: ["第1航廈"] },
+        { time: "05:10", name: "新竹 ➔ 桃園機場", map: "桃園機場第一航廈", icon: "🚗", desc: ["第1航廈"] },
         { time: "09:00", name: "TPE ➔ KIX", map: "關西機場", icon: "✈️", desc: ["12:00抵達"] },
-        { time: "13:35", name: "關西機場 ➔ 難波", url: "https://www.howto-osaka.com/tc/rapit/", map: "近鐵難波站", icon: "🚄", desc: ["搭乘 Rapi:t 特急 (40min)","飯店近#24 出口 or B6 出口"] },
-        { time: "15:30", name: "黑門市場 ➔ 心齋橋", icon: "🍱", map: "Kuromon Market", desc: ["黑門三平_海鮮", "心齋橋逛寶可夢中心 DX (大丸百貨9F)", "固力果跑跑人霓虹燈打卡"] },
+        { time: "13:35", name: "關西機場 ➔ 難波", url: "https://www.howto-osaka.com/tc/rapit/", map: "近鐵難波站", icon: "🚄", desc: ["14:12~15:15","搭乘 Rapi:t 特急 (40min)","飯店近#24 出口 or B6 出口"] },
+        { time: "15:40", name: "寶可夢咖啡廳", icon: "👻", map: "大丸心齋橋店 本館", desc: ["心齋橋逛寶可夢中心 DX (大丸百貨9F)", "固力果跑跑人霓虹燈打卡"] },
+        { time: "17:00", name: "心齋橋/道頓覺", icon: "🏃", map: "大丸心齋橋店 本館", desc: ["固力果跑跑人霓虹燈打卡"] },
         { time: "19:30", name: "難波晚餐建議",  icon: "🍜", desc: ["@やさい串巻きなるとや (蔬菜串)","@Takoyaki Wanaka (本家章魚燒)","@福太郎 本店(大阪燒)", "@雞Soba 座銀 難波店", "@燒肉一斗"] }
       ]
     },
@@ -185,7 +187,7 @@ const fullDatabase = [
     { day: "D12", date: "4/06", title: "大須 ➔ 返台", hotel: "Sweet Home", lat: 34.858, lon: 136.815, city: "常滑",
       items: [
         { time: "10:00", name: "磁浮鐵道館", url: "https://museum.jr-central.co.jp/", map: "Kinjofuto Station", icon: "🚄", desc: ["名古屋站搭青波線直達","進館先抽模擬駕駛籤"] },
-        { time: "15:20", name: "中部機場", url: "https://www.centrair.jp/", map: "Central Japan Airport Station", icon: "✈️", desc: ["@Flight of Dreams"] }]
+        { time: "15:20", name: "中部機場", url: "https://www.centrair.jp/", map: "Central Japan Airport Station", icon: "✈️", desc: ["Flight of Dreams_T2(第二航廈)"] }]
     }
 ];
 let tripData = JSON.parse(localStorage.getItem("trip_v24_ui")) || fullDatabase;
